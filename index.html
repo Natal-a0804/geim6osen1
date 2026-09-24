@@ -1,732 +1,916 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Овощи и фрукты — занятие для детей 6 лет | Подготовка к школе с Яшей</title>
-<meta name="description" content="Развивающее занятие для детей 6 лет: овощи и фрукты, гласные и согласные буквы, счёт до 8, задачки. Подготовка к школе вместе с папильоном Яшей.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Занятие 1 «Наш дом» — подготовка к школе, папильон Яша</title>
+<meta name="description" content="Занятие 1 «Наш дом»: комнаты, семья, счёт до 10, слоги. Подготовка к школе для детей 6 лет вместе с папильоном Яшей.">
 <style>
-:root{
-  --cream:#FBF4E4; --cream2:#F0E2C4; --green:#2E7D32;
-  --ink:#1b1b1b; --vowel:#D32F2F; --cons:#0D3C8F; --gold:#F5A623;
-}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;padding:0;height:100%;font-family:'Segoe UI',Roboto,Arial,sans-serif;
-  background:linear-gradient(180deg,var(--cream),var(--cream2));color:var(--ink);overflow:hidden}
-#app{height:100%;max-width:1000px;margin:0 auto;position:relative}
-.screen{display:none;height:100%;padding:10px 12px;flex-direction:column;align-items:center;gap:8px}
-.screen.on{display:flex;justify-content:space-evenly}
-h1{font-size:clamp(24px,5.6vw,40px);color:var(--green);text-align:center;margin:0;font-weight:800}
-h2{font-size:clamp(20px,4.6vw,32px);color:var(--green);text-align:center;margin:0;font-weight:800;line-height:1.2}
-p{font-size:clamp(17px,3.6vw,24px);text-align:center;margin:0;line-height:1.35}
-.sub{font-size:clamp(15px,3.2vw,20px);color:#4a4a4a}
-img.hero{max-width:min(52vw,300px);max-height:38vh;object-fit:contain}
-.row{display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;width:100%}
+  :root{
+    --cream1:#FBF4E4; --cream2:#F0E2C4; --green:#2E7D32; --green2:#388E3C;
+    --ink:#1b1b1b; --soft:#2b2b2b; --vowel:#D32F2F; --cons:#0D3C8F;
+    --border:#E2D6BA; --card:#fff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:"Segoe UI",system-ui,Arial,sans-serif; color:var(--ink);
+    background:linear-gradient(165deg,var(--cream1) 0%,#F6EBD3 55%,var(--cream2) 100%);
+    min-height:100%; padding:0 0 130px;
+  }
+  .wrap{max-width:1000px;margin:0 auto;padding:14px 14px 0;position:relative}
+  /* верхняя панель */
+  .top{display:flex;align-items:center;gap:10px;justify-content:space-between;margin-bottom:8px}
+  /* карточки задания 1 — компактнее (просьба Наташи: «чуть в тел не влезут») */
+  #familyRow img{max-height:clamp(120px,17vh,170px)}
+  #familyRow .card{flex:0 0 auto}
+  #s3 video{max-height:clamp(130px,22vh,200px)}
+  #roomsPick{grid-template-columns:repeat(2,1fr)}
+  #roomsPick .room img{max-height:clamp(110px,16vh,160px)}
+  /* стулья картинками: 4 ярких (есть) + 3 бледных (не хватает) */
+  .chairrow{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:6px 0 10px}
+  .chairrow img{height:clamp(46px,8vh,72px);width:auto}
+  .chairrow img.miss{opacity:.32}
+  .logo{height:38px;border-radius:10px}
+  .logo-big{width:clamp(130px,26vh,200px);height:auto;border-radius:50%;margin:0 auto 8px;display:block}
+  .task{font-weight:800;color:var(--green);font-size:clamp(20px,4.4vw,28px);white-space:nowrap}
+  .prog{display:flex;gap:4px}
+  .brick{width:16px;height:11px;border-radius:2px;background:#DCCDAE;border:1px solid #C9B891}
+  .brick.on{background:#E9A23B;border-color:#C98320}
+  h1{font-size:clamp(30px,7vw,50px);color:var(--green);text-align:center;line-height:1.15;margin:10px 0 8px}
+  h2{font-size:clamp(32px,7.5vw,52px);color:var(--green);text-align:center;line-height:1.2;margin-bottom:8px}
+  .lead{font-size:clamp(26px,6vw,38px);font-weight:600;color:var(--soft);text-align:center;line-height:1.5;max-width:900px;margin:0 auto 10px}
+  .note{font-size:clamp(24px,5.4vw,34px);color:#5a5a4a;text-align:center;line-height:1.5;max-width:860px;margin:6px auto}
+  .screen{display:none}
+  .screen.on{display:block;animation:fade .25s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .center{text-align:center}
+  video{width:min(690px,92vw);border-radius:18px;box-shadow:0 10px 26px rgba(120,100,60,.18);display:block;margin:6px auto}
+  .btn{
+    font:inherit;font-weight:800;font-size:clamp(16px,1.9vw,22px);background:#fff;color:var(--green);
+    border:3px solid var(--green);border-radius:14px;padding:12px 22px;cursor:pointer;
+    box-shadow:0 4px 0 #CDE3C0;touch-action:manipulation;transition:transform .08s
+  }
+  .btn:active{transform:translateY(2px)}
+  .btn.main{background:var(--green);color:#fff;border-color:var(--green);box-shadow:0 4px 0 #A5D6A7}
+  .btn.ghost{border-style:dashed;border-color:#B9A87E;color:#6b6b5a;box-shadow:none}
+  .btn[disabled]{opacity:.45;cursor:default}
+  .row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:center;margin:12px 0}
+  /* карточки-комнаты */
+  .rooms{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:10px 0}
+  .room{background:var(--card);border:3px solid var(--border);border-radius:16px;overflow:hidden;cursor:pointer;text-align:center}
+  .room img{width:100%;display:block}
+  .room b{display:block;padding:8px;color:var(--green);font-size:clamp(15px,1.7vw,20px)}
+  .room.sel{border-color:var(--green);box-shadow:0 0 0 3px #CDE3C0}
+  /* семья и предметы */
+  .cards{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:10px 0}
+  .pc{background:#fff;border:3px solid var(--border);border-radius:16px;padding:8px;width:clamp(110px,15vw,150px);text-align:center;cursor:pointer}
+  .pc img{width:100%;height:100px;object-fit:contain;display:block}
+  .pc span{display:block;font-weight:700;color:var(--green);font-size:clamp(13px,1.5vw,17px);margin-top:4px}
+  .pc.done{border-color:var(--green);background:#F3FAEE}
+  .stub{border-style:dashed;border-color:#B9A87E;background:rgba(255,255,255,.5)}
+  .stub i{display:flex;height:100px;align-items:center;justify-content:center;font-style:normal;
+          font-size:clamp(12px,1.4vw,15px);color:#8a8060;text-align:center;padding:4px}
+  /* варианты ответов */
+  .opts{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:10px 0}
+  .opt{font:inherit;font-weight:800;font-size:clamp(17px,2vw,24px);min-width:74px;padding:12px 20px;border-radius:14px;
+       border:3px solid var(--border);background:#fff;cursor:pointer;touch-action:manipulation}
+  .opt.ok{background:#E8F5E9;border-color:var(--green);color:var(--green)}
+  .opt.no{animation:shake .3s}
+  @keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+  /* две картинки до/после */
+  .twо,.two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0}
+  #scImg{width:100%;max-height:42vh;object-fit:contain;border-radius:14px;border:3px solid var(--border);display:block;margin:8px 0;background:#fff}
+  .s2img{width:100%;max-height:44vh;object-fit:contain;background:#fff;border-radius:14px;border:3px solid var(--border);display:block;margin:8px 0}
+  .two img{width:100%;max-height:46vh;object-fit:contain;background:#fff;border-radius:14px;border:3px solid var(--border);display:block}
+  .two b{display:block;text-align:center;color:var(--green);margin-bottom:4px}
+  /* панель мамы */
+  .mom{display:none;position:fixed;left:0;right:0;bottom:0;z-index:9999;background:rgba(255,255,255,.97);
+       border-top:2px solid var(--border);padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));
+       box-shadow:0 -6px 20px rgba(120,100,60,.12)}
+  .mom .inner{max-width:1000px;margin:0 auto;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center}
+  .mom .q{font-weight:700;color:#6b6b5a;font-size:clamp(14px,1.6vw,18px)}
+  .mark{font:inherit;font-weight:800;font-size:clamp(15px,1.8vw,21px);border:3px solid var(--border);background:#fff;
+        border-radius:12px;padding:12px 16px;min-height:56px;min-width:120px;cursor:pointer;touch-action:manipulation}
+  .mark.on{border-color:var(--green);background:#F3FAEE;color:var(--green)}
+  .hint{text-align:center;color:#B26A00;font-weight:700;font-size:clamp(13px,1.5vw,17px);min-height:20px;margin-top:6px}
+  .star{font-size:clamp(40px,7vw,80px);text-align:center;animation:pop .5s ease}
+  @keyframes pop{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
+  .zag{font-style:italic;font-size:clamp(16px,2.1vw,24px);line-height:1.8;text-align:center;color:var(--soft);font-weight:600}
+  /* задание «Разложи буквы» */
+  .row-letters{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;min-height:34px;margin-top:6px}
+  .row-letters span{font-size:clamp(20px,3vw,28px);font-weight:900}
+  .row-letters .vowel{color:#D32F2F !important}
+  .row-letters .cons{color:#0D3C8F !important}
+  .zv-card{width:clamp(104px,17vw,160px);height:clamp(104px,17vw,160px);margin:10px auto;display:flex;align-items:center;justify-content:center;
+           font-weight:900;font-size:clamp(52px,9vw,92px);border-radius:22px;border:4px solid var(--border);background:#fff}
+  #s8.on{display:flex;flex-direction:column;justify-content:center;min-height:78vh}
+  .twodiff{display:flex;flex-direction:column;gap:8px;align-items:center}
+  .dcol{width:100%;text-align:center}
+  .dcol b{display:block;color:var(--green);font-size:clamp(14px,1.8vw,18px);margin-bottom:2px}
+  .dcol img{width:100%;max-height:36vh;object-fit:contain;border-radius:12px;border:3px solid var(--border);display:block;background:#fff}
+  .findwrap{position:relative;display:block;width:100%}
+  .findwrap img{width:100%;max-height:36vh;object-fit:contain;border-radius:12px;border:3px solid var(--border);display:block;background:#fff}
+  .hot{position:absolute;border-radius:50%;cursor:pointer;background:transparent;border:3px dashed transparent}
+  .hot.found{border-color:#2E7D32;background:rgba(46,125,50,.18)}
+  .findwrap .found-tag{position:absolute;top:6px;left:50%;transform:translateX(-50%);background:#4caf50;color:#fff;padding:6px 14px;border-radius:12px;font-weight:700;font-size:15px;z-index:5}
+  .label{text-align:center;color:var(--green);font-weight:800;font-size:clamp(15px,2vw,19px);margin:6px 0}
+  #sc.on{display:flex;flex-direction:column;justify-content:center;min-height:78vh}
+  #sz.on{display:flex;flex-direction:column;justify-content:center;min-height:78vh}
+  .mb-row{display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:center}
+  .mb-item{display:flex;flex-direction:column;align-items:center;gap:6px}
+  .mb-item img{height:clamp(130px,22vh,210px);width:auto;border-radius:12px;border:3px solid var(--border);background:#fff}
+  .mb-word{font-size:clamp(26px,5.5vw,42px);font-weight:900;letter-spacing:3px;color:#1b1b1b}
+  .mb-word .vowel{color:#D32F2F !important}
+  .mb-word .cons{color:#0D3C8F !important}
+  .mb-shelves{display:flex;flex-direction:row;gap:10px;justify-content:center;width:100%}
+  .mb-shelf{display:flex;flex-direction:column;align-items:center;gap:4px;border:3px solid var(--border);border-radius:14px;padding:8px 10px;background:#fff;cursor:pointer;flex:1 1 0;max-width:48%}
+  .mb-shelf img{height:clamp(84px,13vh,128px);width:auto;border-radius:12px}
+  .mb-shelf b{color:var(--green);font-size:clamp(12px,1.5vw,16px);text-align:center;line-height:1.2}
+  .mb-shelf.ok{border-color:#2E7D32;background:#F1F8EE}
+  .mb-shelf.no{animation:shake .3s}
+  .zv-card.vowel{color:#D32F2F !important;border-color:var(--vowel);background:#FFF5F5}
+  .zv-card.cons{color:#0D3C8F !important;border-color:var(--cons);background:#F4F7FF}
+  .baskets{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:10px 0}
+  .basket{background:#fff;border:4px solid var(--border);border-radius:18px;padding:8px;width:clamp(140px,25vw,230px);text-align:center;cursor:pointer;touch-action:manipulation}
+  .basket img{width:100%;height:clamp(110px,19vw,170px);object-fit:cover;border-radius:14px;display:block}
+  .basket b{display:block;margin-top:6px;color:var(--green);font-size:clamp(14px,1.7vw,20px)}
+  .basket.ok{border-color:var(--green);background:#F3FAEE}
+  .basket.no{animation:shake .3s}
+  .zv-progress{text-align:center;font-weight:700;color:#6b6b5a;font-size:clamp(14px,1.7vw,19px);margin-top:4px}
+  .itog{width:min(92vw,560px);max-height:44vh;object-fit:contain;border-radius:16px;border:3px solid var(--border);background:#fff;display:block;margin:8px auto}
+  .zv-final{display:flex;flex-direction:column;align-items:center;gap:8px}
+  .zv-final img{width:min(380px,74vw);border-radius:18px;border:3px solid var(--border)}
 
-/* карточки-предметы: белые, тонкая серая рамка, БЕЗ зелёных овалов */
-.item{background:#fff;border:2px solid #cfcfcf;border-radius:14px;padding:6px;cursor:pointer;
-  display:flex;flex-direction:column;align-items:center;gap:4px;transition:transform .15s,border-color .15s}
-.item:active{transform:scale(.96)}
-.item img{max-width:100%;max-height:15vh;object-fit:contain;display:block}
-.item.pick{border-color:#2E7D32;background:#F1F8E9}
-.item.wrong{animation:shake .4s}
+  .hidden{display:none !important}
 
-/* карточки-слова (отдельно от картинок) */
-.words{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;width:100%}
-.word{background:#fff;border:2px solid #cfcfcf;border-radius:14px;padding:8px 16px;cursor:pointer;
-  font-size:clamp(17px,3.8vw,24px);font-weight:800;color:var(--ink);letter-spacing:.5px;
-  transition:transform .12s,border-color .15s}
-.word:active{transform:scale(.95)}
-.word .vowel{color:var(--vowel)}
-.word .cons{color:var(--cons)}
-.word.pick{border-color:#2E7D32;background:#F1F8E9}
-.word.wrong{animation:shake .4s}
-
-.btn{background:#fff;border:3px solid var(--green);border-radius:18px;color:var(--green);
-  font-size:clamp(17px,3.8vw,24px);font-weight:800;padding:12px 28px;cursor:pointer;
-  box-shadow:0 4px 0 rgba(46,125,50,.25);transition:transform .12s;font-family:inherit}
-.btn:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(46,125,50,.25)}
-.btn.gold{border-color:var(--gold);color:#8a5a00;box-shadow:0 4px 0 rgba(245,166,35,.3)}
-.btn.big{font-size:clamp(20px,4.8vw,32px);padding:16px 40px}
-.progress{font-size:clamp(13px,2.6vw,17px);color:#6b6b6b;font-weight:700}
-
-/* плавающие буквы — один ряд */
-.sea{position:relative;width:100%;flex:1;min-height:40vh;display:flex;align-items:center;
-  justify-content:center;gap:clamp(4px,1.4vw,12px);flex-wrap:wrap}
-.ltr{position:relative;width:clamp(46px,11vw,74px);height:clamp(46px,11vw,74px);
-  border:3px solid #cfcfcf;border-radius:16px;background:#fff;
-  display:flex;align-items:center;justify-content:center;cursor:pointer;
-  font-size:clamp(24px,6vw,40px);font-weight:900;color:var(--ink);
-  animation:float 5s ease-in-out infinite;will-change:transform}
-.ltr:active{transform:scale(.93)}
-.ltr.vowel{color:var(--vowel)}
-.ltr.cons{color:var(--cons)}
-.ltr.ok{background:#E8F5E9;border-color:#2E7D32;opacity:.5;animation:none}
-@keyframes float{
-  0%{transform:translate(0,0) rotate(-3deg)}
-  25%{transform:translate(26px,-34px) rotate(5deg)}
-  50%{transform:translate(-22px,30px) rotate(-5deg)}
-  75%{transform:translate(30px,20px) rotate(4deg)}
-  100%{transform:translate(0,0) rotate(-3deg)}
-}
-@keyframes float2{
-  0%{transform:translate(0,0) rotate(4deg)}
-  25%{transform:translate(-30px,26px) rotate(-5deg)}
-  50%{transform:translate(24px,-30px) rotate(5deg)}
-  75%{transform:translate(-26px,-20px) rotate(-4deg)}
-  100%{transform:translate(0,0) rotate(4deg)}
-}
-.sea .ltr:nth-child(even){animation-name:float2}
-@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
-@keyframes fly{0%{transform:translateY(-50px) scale(.7);opacity:.2}100%{transform:translateY(0) scale(1);opacity:1}}
-/* поле для собранного слова */
-#slogiWord{background:#fff;border:2px dashed #b9b9b9;border-radius:14px;padding:8px 14px;
-  display:flex;justify-content:center;align-items:center;gap:2px;min-width:60%}
-/* яблоки/морковки внутри корзинки */
-.inbasket{display:flex;gap:3px;flex-wrap:wrap;justify-content:center;min-height:30px;max-width:150px}
-.inbasket img{height:26px;width:auto}
-.bignum{font-size:clamp(22px,5vw,34px);font-weight:900;color:#2E7D32}
-.faded{opacity:.28}
-.feedback{font-size:clamp(17px,3.8vw,24px);font-weight:800;color:var(--green);min-height:1.3em;text-align:center}
-
-video{max-width:100%;max-height:42vh;border-radius:16px;background:#000;display:block}
-video.logo{max-width:min(84vw,520px);max-height:54vh;border-radius:22px;border:4px solid #fff;
-  box-shadow:0 6px 26px rgba(0,0,0,.18)}
-
-/* ряд фигур */
-.rowstrip{display:flex;gap:8px;justify-content:center;align-items:center;flex-wrap:wrap;width:100%}
-.slot{width:clamp(44px,9vw,62px);height:clamp(44px,9vw,62px);border:2px dashed #b9b9b9;border-radius:12px;
-  background:#fff;display:flex;align-items:center;justify-content:center}
-.shape{width:clamp(34px,7vw,48px);height:clamp(34px,7vw,48px);display:block}
-.sq{background:#1976D2;border-radius:5px}
-.tr{width:0;height:0;background:transparent;
-  border-left:clamp(17px,3.5vw,24px) solid transparent;border-right:clamp(17px,3.5vw,24px) solid transparent;
-  border-bottom:clamp(30px,6vw,42px) solid #F9A825}
-.ci{background:#D32F2F;border-radius:50%}
-/* сначала все фигуры одного цвета */
-.sq.one,.ci.one,.tr.one{border-bottom-color:#1976D2}
-.sq.one,.ci.one{background:#1976D2}
-.ans{background:#fff;border:2px solid #cfcfcf;border-radius:14px;padding:8px;cursor:pointer;transition:transform .12s}
-.ans:active{transform:scale(.94)}
-.ans.pick{border-color:#2E7D32;background:#F1F8E9}
-.ans.wrong{animation:shake .4s}
-
-.mom{display:none;background:#FFF8E1;border:3px dashed var(--gold);border-radius:18px;padding:12px 16px;
-  font-size:clamp(15px,3.2vw,20px);text-align:center;max-width:100%}
-.mom.on{display:block}
-.stars{font-size:clamp(32px,8vw,52px)}
+  @media (max-width:620px){
+    .two{grid-template-columns:1fr}
+    .two img{max-height:32vh}
+    .pc img,.stub i{height:84px}
+    .pc{width:clamp(150px,42vw,190px)}
+    .pc img{height:clamp(96px,15vh,130px)}
+    .opt{font-size:15px;padding:10px 12px;min-width:0}
+    .opt.proom{padding:10px 8px}
+    body{padding-bottom:180px}
+  }
+  .vowel{color:#D32F2F !important}
+  .cons{color:#0D3C8F !important}
 </style>
 </head>
 <body>
-<div id="app">
-
-  <!-- 1. Титул: логотип-видео -->
-  <div class="screen on" id="s0">
-    <video id="logo" class="logo" src="video/logo_yasha.mp4" poster="images/poster_logo.jpg"
-           autoplay muted loop playsinline preload="auto"></video>
-    <button class="btn big" id="go0" type="button">▶ Начать занятие</button>
+<div class="wrap">
+  <div class="top">
+    <div class="task" id="taskLabel"></div>
+    <div class="prog" id="prog"></div>
   </div>
 
-  <!-- 2. Главное видео занятия -->
-  <div class="screen" id="s1">
-    <video id="vid1" src="video/nachalo.mp4" poster="images/poster_nachalo.jpg"
-           playsinline preload="auto"></video>
-    <button class="btn" id="go1" type="button">Дальше</button>
-  </div>
-
-  <!-- 3. Сюжет -->
-  <div class="screen" id="s2">
-    <h2>Баловашка разбросал все буквы</h2>
-    <img class="hero" src="images/balovashka.jpg" alt="Баловашка">
-    <p>Помоги собрать только гласные буквы</p>
-    <button class="btn" id="go2" type="button">Помогу!</button>
-  </div>
-
-  <!-- 4. Правило -->
-  <div class="screen" id="s3">
-    <h2>Вспомним правило</h2>
-    <div class="words">
-      <span class="word"><b class="vowel">А</b></span><span class="word"><b class="vowel">О</b></span>
-      <span class="word"><b class="vowel">У</b></span><span class="word"><b class="vowel">И</b></span>
-    </div>
-    <p><b class="vowel">Гласные</b> буквы можно петь: а-а-а, о-о-о</p>
-    <div class="words">
-      <span class="word"><b class="cons">М</b></span><span class="word"><b class="cons">Р</b></span>
-      <span class="word"><b class="cons">К</b></span><span class="word"><b class="cons">Т</b></span>
-    </div>
-    <p><b class="cons">Согласные</b> петь не получается</p>
-    <button class="btn" id="go3" type="button">Понятно</button>
-  </div>
-
-  <!-- 5. Задание 1: лови гласные (буквы плавают) -->
-  <div class="screen" id="s4">
-    <div class="progress">Задание 1 из 9</div>
-    <h2 id="t1head">Лови только гласные буквы</h2>
-    <p class="sub" id="t1sub">Лови гласные</p>
-    <div class="sea" id="sea"></div>
-    <div class="feedback" id="fb4"></div>
-    <button class="btn" id="go4" type="button" style="display:none">Дальше</button>
-  </div>
-
-  <!-- 6. Задание 2: продолжи ряд -->
-  <div class="screen" id="s5">
-    <div class="progress">Задание 2 из 9</div>
-    <h2>Продолжи ряд</h2>
-    <div class="rowstrip" id="strip"></div>
-    <p class="sub">Что поставим дальше?</p>
-    <div class="rowstrip" id="variants"></div>
-    <div class="feedback" id="fb5"></div>
-    <button class="btn" id="go5" type="button" style="display:none">Дальше</button>
-  </div>
-
-  <!-- 7. Скороговорка -->
-  <div class="screen" id="s6">
-    <h2>Скороговорка</h2>
-    <video id="vid2" src="video/skorogovorka.mp4" poster="images/poster_skorogovorka.jpg"
-           playsinline preload="auto"></video>
-    <p class="sub">Послушай и повтори 3 раза</p>
-    <button class="btn" id="go6" type="button">Повторил!</button>
-  </div>
-
-  <!-- 8. Задание 3: НАЙДИ ПАРУ (картинка + слово) -->
-  <div class="screen" id="s7">
-    <div class="progress">Задание 3 из 9</div>
-    <h2>Найди пару: слово и картинка</h2>
-    <p class="sub">Нажми слово, потом его картинку</p>
-    <div class="words" id="pairWords"></div>
-    <div class="row" id="pairPics"></div>
-    <div class="feedback" id="fb7"></div>
-    <button class="btn" id="go7" type="button" style="display:none">Дальше</button>
-  </div>
-
-  <!-- 9. Задание 4: НАЙДИ ЛИШНЕЕ (овощи) -->
-  <div class="screen" id="s7b">
-    <div class="progress">Задание 4 из 9</div>
-    <h2>Найди лишнее</h2>
-    <p class="sub">Здесь все овощи. Что лишнее?</p>
-    <div class="row" id="pic7"></div>
-    <div class="feedback" id="fb7b"></div>
-    <button class="btn" id="go7b" type="button" style="display:none">Дальше</button>
-  </div>
-
-  <!-- 9б. Задание 5: НАЙДИ ЛИШНЕЕ (фрукты) -->
-  <div class="screen" id="s8">
-    <div class="progress">Задание 5 из 9</div>
-    <h2>Найди лишнее</h2>
-    <p class="sub">А здесь все фрукты. Что лишнее?</p>
-    <div class="row" id="pic8"></div>
-    <div class="feedback" id="fb8"></div>
-    <button class="btn" id="go8" type="button" style="display:none">Дальше</button>
-  </div>
-
-  <!-- 10. Задание 6: 5 яблок -->
-  <div class="screen" id="s9">
-    <div class="progress">Задание 6 из 9</div>
-    <h2>Разложи 5 яблок в две корзинки</h2>
+  <!-- 0. ТИТУЛ + ВИДЕО -->
+  <section class="screen on" id="s0">
+    <img class="logo-big" src="images/logo.png" alt="Курс «Приключения с папильоном Яшей»">
+    <h1>Занятие 1. Наш дом</h1>
+    <p class="lead">Тема: моя семья · с Яшей и Баловашкой</p>
+    <video id="vid0" src="video/zastavka.mp4" poster="images/posters/poster_zastavka.jpg"
+           preload="metadata" playsinline></video>
     <div class="row">
-      <div class="item" style="cursor:default">
-        <img src="images/korzina.jpg" alt="корзинка">
-        <span class="cap">Корзинка 1</span>
-        <div class="inbasket" id="c1cnt"></div>
-      </div>
-      <div class="item" style="cursor:default">
-        <img src="images/korzina.jpg" alt="корзинка">
-        <span class="cap">Корзинка 2</span>
-        <div class="inbasket" id="c2cnt"></div>
-      </div>
+      <button class="btn main" data-act="playVid('vid0')">▶ Посмотреть</button>
+      <button class="btn ghost" data-act="show('s1')">Дальше ➡</button>
     </div>
-    <div class="row" id="apples"></div>
-    <div class="feedback" id="fb9"></div>
-    <button class="btn" id="go9" type="button" style="display:none">Дальше</button>
-  </div>
+  </section>
 
-  <!-- 11. Задание 7: 6 морковок -->
-  <div class="screen" id="s10">
-    <div class="progress">Задание 7 из 9</div>
-    <h2>Разложи 6 морковок в два пучка</h2>
+  <!-- ЗАДАНИЕ: СОСЧИТАЙ СЕМЬЮ (счёт по картинкам) -->
+  <section class="screen" id="sc">
+    <h2>Задание 5. Сколько людей на картинке?</h2>
+    <div class="row"><button class="btn main" id="play_sc" data-key="sc1">▶ Послушать задание</button></div>
+    <p class="lead" id="scQ">Посчитай людей.</p>
+    <img id="scImg" src="images/semya/semya_2_cheloveka.jpg" alt="Семья">
+    <div class="opts" id="scOpts"></div>
+    <div class="example" id="scEx"></div>
+    <div class="hint" id="scHint"></div>
+  </section>
+
+  <!-- 1. ЗАГАДКА -->
+  <section class="screen" id="s1">
+    <h2>Отгадай комнату 🏠</h2>
+    <video id="vid1" src="video/gostinaya.mp4" poster="images/posters/poster_gostinaya.jpg"
+           preload="metadata" playsinline></video>
     <div class="row">
-      <div class="item" style="cursor:default">
-        <img src="images/morkov_3sht.jpg" alt="пучок">
-        <span class="cap">Пучок 1</span>
-        <div class="inbasket" id="m1cnt"></div>
+      <button class="btn ghost" data-act="playVid('vid1')">🔊 Послушать ещё раз</button>
+    </div>
+    <div class="opts" id="opts1">
+      <button class="opt" data-ok="1">ГОСТИНАЯ</button>
+      <button class="opt">КУХНЯ</button>
+      <button class="opt">ВАННАЯ</button>
+    </div>
+    <div class="hint" id="hint1"></div>
+    <div class="row" id="nav1">
+      <button class="btn ghost" data-act="show(NEXT[cur] || 'sz')">Дальше ➡</button>
+    </div>
+  </section>
+
+
+  <!-- ЗАГАДКА ПРО КУХНЮ (видео) — перед заданием с предметами -->
+  <section class="screen" id="sk">
+    <h2>Отгадай комнату 🏠</h2>
+    <video id="vidk" src="video/kuhnya.mp4" poster="images/posters/poster_kuhnya.jpg"
+           preload="metadata" playsinline></video>
+    <div class="row">
+      <button class="btn main" id="skPlay">▶ Послушать загадку</button>
+    </div>
+    <div class="opts" id="skOpts">
+      <button class="opt" data-ok="1">КУХНЯ</button>
+      <button class="opt">СПАЛЬНЯ</button>
+      <button class="opt">ВАННАЯ</button>
+    </div>
+    <div class="hint" id="skHint"></div>
+  </section>
+
+  <!-- 3. ЗАДАНИЕ 1 — спаси семью -->
+
+  <!-- 4. ЗАДАНИЕ 2 — предметы (заглушки) -->
+  <section class="screen" id="s4">
+    <h2>Задание 3. Каждой вещи — своё место</h2>
+    <div class="row"><button class="btn main" id="play_s4" data-key="t2">▶ Послушать задание</button></div>
+    <p class="lead">Куда отнесём предмет?</p>
+    <div class="cards" id="thingsRow"></div>
+    <div class="rooms" id="roomsPick2"></div>
+    <div class="hint" id="hint4"></div>
+  </section>
+
+  <!-- 5. ЗАДАНИЕ 3 — счёт -->
+
+  <!-- 6. ЗАДАНИЕ 6 «РАЗЛОЖИ ЗВУКИ» (физкультминутку убрали по решению Наташи 19.09) -->
+  <!-- 2. ЗАДАНИЕ «РАЗЛОЖИ ЗВУКИ»: буквы ложатся в ряд под героями -->
+  <section class="screen" id="sz">
+    <h2>Задание 2. Разложи буквы</h2>
+    <div class="row"><button class="btn main" id="play_sz" data-key="zv5">▶ Послушать задание</button></div>
+    <p class="lead" id="szQ">Гласные буквы мы поём — они тянутся. Согласные — читаем твёрдо, с помощью язычка и зубов.</p>
+    <div class="zv-card" id="zvCard">А</div>
+    <div class="zv-progress" id="zvProg">Разложено: 0 из 10</div>
+    <p class="lead" style="font-size:clamp(14px,1.9vw,20px)">Нажми на Наташу или на Баловашку 👇</p>
+    <div class="baskets">
+      <div class="basket" id="basketNata">
+        <img src="images/zvuki/nata_glasnye.jpg" alt="Наташа — гласные">
+        <b>Наташе — гласные</b>
+        <div class="row-letters" id="rowNata"></div>
       </div>
-      <div class="item" style="cursor:default">
-        <img src="images/morkov_3sht_2.jpg" alt="пучок">
-        <span class="cap">Пучок 2</span>
-        <div class="inbasket" id="m2cnt"></div>
+      <div class="basket" id="basketBalo">
+        <img src="images/zvuki/balovashka_soglasnye.jpg" alt="Баловашка — согласные">
+        <b>Баловашке — согласные</b>
+        <div class="row-letters" id="rowBalo"></div>
       </div>
     </div>
-    <div class="row" id="morkovi"></div>
-    <div class="feedback" id="fb10"></div>
-    <button class="btn" id="go10" type="button" style="display:none">Дальше</button>
-  </div>
-
-  <!-- 12. Задание 7: слоги -->
-  <div class="screen" id="s11">
-    <div class="progress">Задание 8 из 9</div>
-    <h2>Собери слово из слогов</h2>
-    <div class="row" id="slogiPic"></div>
-    <div class="words" id="slogi"></div>
-    <p class="sub" id="slogiWord" style="font-size:clamp(20px,4.6vw,30px);font-weight:800;min-height:1.4em"></p>
-    <div class="feedback" id="fb11"></div>
-    <button class="btn" id="go11" type="button" style="display:none">Дальше</button>
-  </div>
-
-  <!-- 13. Задачки -->
-  <div class="screen" id="s12">
-    <h2 id="zTitle">Задачка 1</h2>
-    <div class="row" id="zPic"></div>
-    <p id="zText"></p>
-    <div class="row" id="zAns"></div>
-    <div class="feedback" id="fb12"></div>
-    <button class="btn" id="go12" type="button" style="display:none">Дальше</button>
-  </div>
-
-  <!-- 14. Финал -->
-  <div class="screen" id="s13">
-    <h1>Молодец!</h1>
-    <div class="stars">⭐⭐⭐</div>
-    <video id="vid3" src="video/itog.mp4" poster="images/poster_itog.jpg"
-           playsinline preload="auto"></video>
-    <div class="mom" id="momBox">
-      <b>Маме 💛</b><br>Посмотрите дома, где овощи и какие есть фрукты?
+    <div class="hint" id="hintZv"></div>
+    <div class="row zv-final hidden" id="zvFinal">
+      <img src="images/zvuki/vmeste_pohvala.jpg" alt="Молодцы!">
+      <button class="btn main" id="szNext">Дальше ➡</button>
     </div>
-    <button class="btn gold" id="again" type="button">↺ Ещё раз</button>
-  </div>
+  </section>
 
+  <!-- ЗАГАДКИ-ВИДЕО В КОНЦЕ (детская, спальня) -->
+  <!-- ЗАГАДКИ-ВИДЕО: детская и спальня — с вариантами ответа -->
+
+  <!-- 5. ЗАДАНИЕ 5 — что изменилось -->
+
+  <!-- 8. ЗАДАНИЕ 5 — слоги -->
+  <!-- 4. ЗАДАНИЕ «РАССТАВЬ МЕБЕЛЬ» (слоги: 1 — Наташе, 2 — Баловашке) -->
+  <section class="screen" id="s8">
+    <h2>Задание 4. Расставь по слогам</h2>
+    <div class="row"><button class="btn main" id="play_s8" data-key="zv4">▶ Послушать задание</button></div>
+    <p class="lead">Послушай слово. Сколько в нём слогов?<br><b>Один слог — Наташе, два слога — Яше.</b></p>
+    <div class="mb-row">
+      <div class="mb-item">
+        <img id="mbImg" src="images/predmety/shkaf.jpg" alt="Мебель">
+        <div class="mb-word" id="mbWord"><span class="cons">Ш</span><span class="cons">К</span><span class="vowel">А</span><span class="cons">Ф</span></div>
+      </div>
+      <div class="mb-shelves">
+        <div class="mb-shelf" id="shelfNata">
+          <img src="images/nata_slogi.jpg" alt="Наташа">
+          <b>Наташе — 1 слог</b>
+        </div>
+        <div class="mb-shelf" id="shelfYasha">
+          <img src="images/yasha_slogi.jpg" alt="Яша">
+          <b>Яше — 2 слога</b>
+        </div>
+      </div>
+    </div>
+    <div class="hint" id="mbHint"></div>
+  </section>
+
+  <!-- 9. ЗАДАНИЕ 6 — дом готов -->
+  
+  <!-- ЗАГАДКА ПРО ДЕТСКУЮ (видео, только она) -->
+  <section class="screen" id="sg">
+    <h2>Отгадай загадку 🏠</h2>
+    <video id="vidg" src="video/detskaya.mp4" poster="images/posters/poster_detskaya.jpg"
+           preload="metadata" playsinline></video>
+    <div class="row">
+      <button class="btn main" data-act="playGuess('detskaya')">▶ Посмотреть загадку</button>
+    </div>
+    <div class="opts" id="guessOpts">
+      <button class="opt" data-ok="1">ДЕТСКАЯ</button>
+      <button class="opt">КУХНЯ</button>
+      <button class="opt">ПРИХОЖАЯ</button>
+    </div>
+    <div class="hint" id="guessHint"></div>
+  </section>
+
+  <!-- 10. ФИНАЛ -->
+  <section class="screen" id="s10">
+    <div class="star">⭐</div>
+    <h2>Занятие 1 пройдено!</h2>
+    <div class="row"><button class="btn main" id="play_s10" data-key="pos1">▶ Послушать пословицу</button></div>
+    <img src="images/semya/semya_6_chelovek.jpg" alt="семья" style="border-radius:16px;width:100%;max-width:700px;display:block;margin:8px auto">
+    <p class="lead">«Зачем клад, когда в семье лад?»</p>
+    <p class="note">Молодец! Ты справился со всеми заданиями 🌟</p>
+    <div class="row"><button class="btn main" data-act="show('s11')">Для мамы ➡</button></div>
+  </section>
+
+  <!-- 11. ДЛЯ МАМЫ -->
+  <section class="screen" id="s11">
+    <h2>Маме 💛</h2>
+    <p class="lead">Пройдите по дому и назовите комнаты: что где стоит и зачем?</p>
+    <p class="lead">Посчитайте стулья на кухне — всем ли хватает?</p>
+    <div class="row">
+      <button class="btn" data-act="restartGame()">↺ Ещё раз</button>
+    </div>
+  </section>
+</div>
+
+<!-- ПАНЕЛЬ МАМЫ: сначала оценка, потом «Дальше» -->
+<div class="mom" id="mom">
+  <div class="inner">
+    <span class="q">Как справился?</span>
+    <button class="btn main" id="nextBtn">Дальше ➡</button>
+  </div>
+  <div class="hint" id="momHint"></div>
 </div>
 
 <script>
-// ================= звук =================
-var AUD=[], MOM_ON=true;
-function unlock(){
-  try{var a=new Audio('sounds/t1.mp3');a.volume=0;a.play().then(function(){a.pause()}).catch(function(){})}catch(e){}
+/* ===== ядро ===== */
+var cur = 0, TASKS = 5, done = 0;
+var MARKS = {};                 /* оценки мамы: экран → 1/2/3 */
+var TASK_OF = { sz:2, s4:3, s8:4, sc:5 };
+var NEXT = { s0:'s1', s1:'sz', sz:'sk', sk:'s4', s4:'s8', s8:'sc', sc:'sg', sg:'s10' };
+/* голос Наташи, который звучит при открытии экрана */
+var SCREEN_SAY = { s4:'t2' };   /* sz озвучивается отдельно: zv5 + zv2 */  /* s7 «Найди отличия» — пока без звука */
+/* мешочек похвал: выпадают по очереди, без повторов */
+var PRAISE = ['genialno','tochno','p1','p2','p3','p4'], praiseBag = [];
+function sayPraise(){
+  if(!praiseBag.length){ praiseBag = PRAISE.slice(); }
+  var i = Math.floor(Math.random() * praiseBag.length);
+  say(praiseBag.splice(i,1)[0]);
 }
-function hush(){ AUD.forEach(function(a){try{a.pause();a.currentTime=0}catch(e){}}); AUD=[]; }
-function say(name,done){
-  try{
-    var a=new Audio('sounds/'+name+'.mp3'); a.volume=1; AUD.push(a);
-    var t=false; function fin(){ if(t)return; t=true; if(done)done(); }
-    a.onended=fin; a.onerror=fin;
-    setTimeout(fin, 12000);
-    a.play().catch(fin);
-  }catch(e){ if(done)done(); }
-}
-var PRAISE=['genialno','tochno2','p_molodec','p_da','p_konechno','p_soglasna','p_aga'];
-var lastPraise='';
-function praise(done){
-  var pool=PRAISE.filter(function(x){return x!==lastPraise;});
-  var pick=pool[Math.floor(Math.random()*pool.length)];
-  lastPraise=pick;
-  say(pick, done);
-}
+/* подсказки Наташи, по одной на задание */
+var HINT_SAY = { s1:'h2', s4:'h4', s8:'h2', sz:'zv3' };  /* s1: h1 не записан — используем h2 */
+var CUR_AUDIO = null;
+/* видео, которое играет САМО при входе на экран (озвучка Наташи) */
+var VIDEO_ON_SHOW = { s0:'vid0', s1:'vid1', sk:'vidk' };
+var GUESS_ON_SHOW = { sg:'vidg' };
 
-function q(id){return document.getElementById(id)}
 
-// раскраска букв: гласные красные, согласные тёмно-синие (по чек-листу — везде, где читает ребёнок)
-var VOW='АЕЁИОУЫЭЮЯ';
-function paintLetters(word){
-  var h='';
-  for(var i=0;i<word.length;i++){
-    var c=word.charAt(i);
-    var cls=(VOW.indexOf(c)>=0)?'vowel':'cons';
-    h+='<span class="'+cls+'">'+c+'</span>';
-  }
-  return h;
+/* раскраска слова: гласные красные, согласные тёмно-синие (чек-лист курса) */
+function paintWord(w){
+  var VOW = 'АЕЁИОУЫЭЮЯаеёиоуыэюя';
+  return w.split('').map(function(ch){
+    if(VOW.indexOf(ch) >= 0) return '<span class="vowel">' + ch + '</span>';
+    if(/[А-Яа-я]/.test(ch)) return '<span class="cons">' + ch + '</span>';
+    return ch;
+  }).join('');
 }
 
-var ONSHOW={};
-function show(id){
-  hush();
-  var all=document.querySelectorAll('.screen');
-  for(var i=0;i<all.length;i++) all[i].classList.remove('on');
-  q(id).classList.add('on');
-  window.scrollTo(0,0);
-  if(ONSHOW[id]) ONSHOW[id]();
+function stopAll(){
+  try{ if(CUR_AUDIO){ CUR_AUDIO.pause(); CUR_AUDIO = null; } }catch(e){}
+  document.querySelectorAll('video').forEach(function(v){ try{ v.pause(); }catch(e){} });
 }
-
-// ================= 1 титул =================
-q('logo').addEventListener('play',function(){hush()});
-q('go0').addEventListener('pointerdown',function(e){e.preventDefault();unlock();show('s1')});
-
-// ================= 2 видео (запускается сразу, без панели) =================
-q('vid1').addEventListener('play',function(){hush()});
-ONSHOW['s1']=function(){ try{ q('vid1').currentTime=0; q('vid1').play().catch(function(){}); }catch(e){} };
-q('vid1').addEventListener('pointerdown',function(e){ e.preventDefault();
-  if(this.paused) this.play().catch(function(){}); else this.pause(); });
-q('go1').addEventListener('pointerdown',function(e){e.preventDefault();hush();show('s2')});
-
-// ================= 3 сюжет =================
-ONSHOW['s2']=function(){ say('s1'); };
-q('go2').addEventListener('pointerdown',function(e){e.preventDefault();show('s3')});
-
-// ================= 4 правило =================
-q('go3').addEventListener('pointerdown',function(e){e.preventDefault();show('s4')});
-
-// ================= 5 задание 1: плавающие буквы (2 этапа) =================
-var seaBox=q('sea');
-var GL=['А','О','У','И','Е','Ы'], SG=['М','Р','К','Т','Н','Л','П','Б'];
-var stage=1, found=0, need=4;
-function fillSea(isVowel){
-  seaBox.innerHTML=''; found=0; need=4;
-  var src=(isVowel?GL:SG).slice(0,6);
-  var items=[];
-  // ловим ИМЕННО те буквы, которые просили
-  for(var i=0;i<need;i++) items.push({ch:src[i],ok:true});
-  for(var j=0;j<4;j++) items.push({ch:(isVowel?SG:GL)[j],ok:false});
-  items.sort(function(){return Math.random()-0.5});
-  var cells=[]; // буквы в один ряд, перемешаны
-  items.sort(function(){return Math.random()-0.5});
-  items.forEach(function(o,idx){
-    var b=document.createElement('button'); b.type='button';
-    b.className='ltr '+((VOW.indexOf(o.ch)>=0)?'vowel':'cons');
-    b.textContent=o.ch;
-    b.style.animationDelay=(idx*0.5)+'s';
-    b.style.animationDuration=(4.5+idx*0.4)+'s';
-    b.addEventListener('pointerdown',function(e){
-      e.preventDefault();
-      if(b.classList.contains('ok'))return;
-      if(o.ok){ b.classList.add('ok'); found++;
-        if(found>=need){
-          if(stage===1){ praise(function(){ setTimeout(function(){ nextStage(); }, 1200); }); }
-          else { praise(function(){ q('fb4').textContent='Все согласные найдены!'; q('go4').style.display=''; }); }
-        }
-      }
-      else{ b.classList.add('wrong'); setTimeout(function(){b.classList.remove('wrong')},450); say('ne_tochno'); }
-    });
-    seaBox.appendChild(b);
-  });
+function say(key){
+  /* здесь будет голос Наташи: sounds/' + key + '.mp3' */
+  if(key === window.__lastSayKey){ return; }   /* защита: одна и та же фраза не играет дважды подряд */
+  window.__lastSayKey = key;
+  stopAll();
+  try{ CUR_AUDIO = new Audio('sounds/' + key + '.mp3'); CUR_AUDIO.play(); }catch(e){}
 }
-function nextStage(){
-  stage=2;
-  q('t1head').textContent='А теперь согласные буквы';
-  q('t1sub').textContent='Лови согласные';
-  fillSea(false);
-  say('t2');
+function playVid(id){
+  var v = document.getElementById(id);
+  v.muted = false; v.controls = false;
+  v.play().catch(function(){ v.muted = true; v.play(); });
 }
-fillSea(true);
-ONSHOW['s4']=function(){ if(stage===1 && found<need) say('t1'); };
-q('go4').addEventListener('pointerdown',function(e){e.preventDefault();show('s5')});
+/* одно окно — несколько комнат: кнопки переключают видео */
 
-// ================= 6 задание 2: продолжи ряд (3 этапа) =================
-var rowStage=1;
-function buildRow(){
-  var strip=q('strip'), vars=q('variants');
-  strip.innerHTML=''; vars.innerHTML='';
-  var oneColor=false;   // фигуры всегда своих цветов
-  // этап 1 и 2: круг-квадрат; этап 3: круг-треугольник (жёлтый треугольник)
-  var seq, next, order;
-  if(rowStage===3){
-    seq=['ci','tr','ci','tr','ci']; next='tr';
-    order=[{k:'tr'},{k:'ci'}];
-  } else {
-    seq=['ci','sq','ci','sq','ci']; next='sq';
-    order=(rowStage===1)?[{k:'sq'},{k:'ci'},{k:'tr'}]:[{k:'sq'},{k:'ci'}];
-  }
-  seq.forEach(function(k){
-    var slot=document.createElement('div'); slot.className='slot';
-    slot.innerHTML='<div class="shape '+k+(oneColor?' one':'')+'"></div>';
-    strip.appendChild(slot);
-  });
-  var empty=document.createElement('div'); empty.className='slot'; empty.id='lastSlot';
-  strip.appendChild(empty);
-  order.sort(function(){return Math.random()-0.5});
-  order.forEach(function(o){
-    var d=document.createElement('div'); d.className='ans';
-    d.innerHTML='<div class="shape '+o.k+(oneColor?' one':'')+'"></div>';
-    d.addEventListener('pointerdown',function(e){ e.preventDefault();
-      if(o.k===next){
-        d.classList.add('pick');
-        var st=q('lastSlot');
-        st.innerHTML='<div class="shape '+next+(oneColor?' one':'')+'"></div>';
-        st.style.borderStyle='solid'; st.style.borderColor='#2E7D32';
-        if(rowStage===1){
-          praise(function(){ q('fb5').textContent='Верно! А теперь фигуры станут разного цвета…';
-            setTimeout(function(){ rowStage=2; buildRow(); q('fb5').textContent=''; }, 2500); });
-        } else if(rowStage===2){
-          praise(function(){ q('fb5').textContent='А теперь с жёлтыми треугольниками…';
-            setTimeout(function(){ rowStage=3; buildRow(); q('fb5').textContent=''; }, 2500); });
-        } else {
-          praise(function(){ q('fb5').textContent='Ряд продолжен!'; q('go5').style.display=''; });
-        }
-      } else {
-        d.classList.add('wrong'); setTimeout(function(){d.classList.remove('wrong')},450);
-        q('fb5').textContent='Посмотри, какая фигура идёт следующей';
-      }
-    });
-    vars.appendChild(d);
-  });
-}
-buildRow();
-ONSHOW['s5']=function(){ say('r1'); };
-q('go5').addEventListener('pointerdown',function(e){e.preventDefault();show('s6')});
-
-// ================= 7 скороговорка: сначала видео, потом «повтори три раза» =================
-q('vid2').addEventListener('play',function(){hush()});
-q('vid2').addEventListener('pointerdown',function(e){ e.preventDefault();
-  if(this.paused) this.play().catch(function(){}); else this.pause(); });
-ONSHOW['s6']=function(){
-  var v=q('vid2');
-  v.addEventListener('ended',function once(){ v.removeEventListener('ended',once); say('skor1'); });
-  try{ v.currentTime=0; v.play().catch(function(){ say('skor1'); }); }catch(e){ say('skor1'); }
-  // страховка: если видео не запустилось, аудио всё равно прозвучит
-  setTimeout(function(){ if(v.paused && v.currentTime===0) say('skor1'); }, 9000);
+/* ── ЗАГАДКИ-ВИДЕО: варианты ответов ── */
+var GUESS = {
+  detskaya: {ok:'ДЕТСКАЯ', opts:['ДЕТСКАЯ','КУХНЯ','ПРИХОЖАЯ']}
 };
-q('go6').addEventListener('pointerdown',function(e){e.preventDefault();hush();show('s7')});
-
-// ================= 8 задание 3: НАЙДИ ПАРУ (сначала слово, потом картинка) =================
-(function(){
-  var pairs=[
-    {w:'МОРКОВЬ', i:'morkov_2'},
-    {w:'ПОМИДОР', i:'pomidor'},
-    {w:'ОГУРЕЦ',  i:'ogurec_2'},
-    {w:'ЯБЛОКО',  i:'yabloko_kr_1'}
-  ];
-  var picBox=q('pairPics'), wrBox=q('pairWords');
-  var pickedWord=null, done=0, total=pairs.length;
-  var pOrder=pairs.slice().sort(function(){return Math.random()-0.5});
-  var wOrder=pairs.slice().sort(function(){return Math.random()-0.5});
-  // СЛОВА наверху — с них начинаем
-  var wrapW=wrBox, wrapP=picBox;
-  wOrder.forEach(function(p){
-    var d=document.createElement('button'); d.type='button'; d.className='word';
-    d.innerHTML=paintLetters(p.w);
-    d.addEventListener('pointerdown',function(e){ e.preventDefault();
-      if(d.classList.contains('pick'))return;
-      Array.prototype.slice.call(wrapW.children).forEach(function(x){ x.classList.remove('pick'); });
-      d.classList.add('pick'); pickedWord=p.w;
-    });
-    wrapW.appendChild(d);
-  });
-  var wrapP=picBox;
-  pOrder.forEach(function(p){
-    var d=document.createElement('div'); d.className='item';
-    d.innerHTML='<img src="images/'+p.i+'.jpg" alt="">';
-    d.addEventListener('pointerdown',function(e){ e.preventDefault();
-      if(d.classList.contains('pick'))return;
-      if(!pickedWord){ q('fb7').textContent='Сначала выбери слово'; return; }
-      if(p.w===pickedWord){ d.classList.add('pick'); pickedWord=null; done++;
-        Array.prototype.slice.call(wrapW.children).forEach(function(x){ x.classList.remove('pick'); });
-        if(done>=total){ praise(function(){ q('fb7').textContent='Все пары найдены!';
-          q('go7').style.display=''; }); } }
-      else { d.classList.add('wrong'); setTimeout(function(){d.classList.remove('wrong')},450); say('ne_tochno'); }
-    });
-    wrapP.appendChild(d);
-  });
-})();
-ONSHOW['s7']=function(){ say('p1'); };
-q('go7').addEventListener('pointerdown',function(e){e.preventDefault();show('s7b')});
-
-// ================= 9 задание 4: НАЙДИ ЛИШНЕЕ (овощи) =================
-(function(){
-  var pics=[{i:'morkov_2',w:'МОРКОВЬ'},{i:'pomidor',w:'ПОМИДОР'},{i:'ogurec_2',w:'ОГУРЕЦ'},
-            {i:'yabloko_kr_1',w:'ЯБЛОКО',bad:true}];
-  pics.sort(function(){return Math.random()-0.5});
-  var picBox=q('pic7');
-  pics.forEach(function(p){
-    var d=document.createElement('div'); d.className='item';
-    d.innerHTML='<img src="images/'+p.i+'.jpg" alt="">'+'<span class="cap">'+paintLetters(p.w)+'</span>';
-    d.addEventListener('pointerdown',function(e){ e.preventDefault();
-      if(p.bad){ d.classList.add('pick');
-        say('v_yabloko',function(){ q('fb7b').textContent='Верно! Яблоко — это фрукт'; q('go7b').style.display=''; }); }
-      else { d.classList.add('wrong'); setTimeout(function(){d.classList.remove('wrong')},450); say('ne_tochno'); }
-    });
-    picBox.appendChild(d);
-  });
-})();
-ONSHOW['s7b']=function(){ say('l_ovoshchi'); };
-q('go7b').addEventListener('pointerdown',function(e){e.preventDefault();show('s8')});
-
-// ================= 9 задание 4: НАЙДИ ЛИШНЕЕ (фрукты) =================
-(function(){
-  var pics=[{i:'grusha_zh_1',w:'ГРУША'},{i:'banan_1',w:'БАНАН'},{i:'vinograd_1',w:'ВИНОГРАД'},
-            {i:'morkov_3',w:'МОРКОВЬ',bad:true}];
-  pics.sort(function(){return Math.random()-0.5});
-  var picBox=q('pic8');
-  pics.forEach(function(p){
-    var d=document.createElement('div'); d.className='item';
-    d.innerHTML='<img src="images/'+p.i+'.jpg" alt="">'+'<span class="cap">'+paintLetters(p.w)+'</span>';
-    d.addEventListener('pointerdown',function(e){ e.preventDefault();
-      if(p.bad){ d.classList.add('pick');
-        say('v_morkov',function(){ q('fb8').textContent='Верно! Морковь — это овощ'; q('go8').style.display=''; }); }
-      else { d.classList.add('wrong'); setTimeout(function(){d.classList.remove('wrong')},450); say('ne_tochno'); }
-    });
-    picBox.appendChild(d);
-  });
-})();
-ONSHOW['s8']=function(){ say('l_frukty'); };
-q('go8').addEventListener('pointerdown',function(e){e.preventDefault();show('s9')});
-
-// ================= 10 задание 6: 5 яблок (яблоки видны в корзинке, числа внизу) =================
-(function(){
-  var left=5, box=q('apples'), c1=q('c1cnt'), c2=q('c2cnt');
-  var cnt=[0,0];
-  function drawCounts(){
-    c1.innerHTML=new Array(cnt[0]+1).join('<img src="images/yabloko_kr_1.jpg">');
-    c2.innerHTML=new Array(cnt[1]+1).join('<img src="images/yabloko_kr_1.jpg">');
-    q('fb9').innerHTML='<span class="bignum">'+cnt[0]+' + '+cnt[1]+' = 5</span>';
-  }
-  [0,1,2,3,4].forEach(function(){
-    var d=document.createElement('div'); d.className='item';
-    d.innerHTML='<img src="images/yabloko_kr_1.jpg" alt="яблоко">';
-    d.addEventListener('pointerdown',function(e){ e.preventDefault(); if(d.dataset.used)return;
-      d.dataset.used='1'; d.style.opacity='.3';
-      var i=(cnt[0]<=cnt[1])?0:1; cnt[i]++; drawCounts();
-      left--;
-      if(left===0){ praise(function(){
-        q('fb9').innerHTML='<span class="bignum">'+cnt[0]+' + '+cnt[1]+' = 5</span>';
-        q('go9').style.display=''; }); }
-    });
-    box.appendChild(d);
-  });
-})();
-q('go9').addEventListener('pointerdown',function(e){e.preventDefault();show('s10')});
-
-// ================= 11 задание 7: 6 морковок (в пучке, число внизу) =================
-(function(){
-  var left=6, box=q('morkovi'), m1=q('m1cnt'), m2=q('m2cnt');
-  var cnt=[0,0];
-  function drawCounts(){
-    m1.innerHTML=new Array(cnt[0]+1).join('<img src="images/morkov_2.jpg">');
-    m2.innerHTML=new Array(cnt[1]+1).join('<img src="images/morkov_2.jpg">');
-    q('fb10').innerHTML='<span class="bignum">'+cnt[0]+' + '+cnt[1]+' = 6</span>';
-  }
-  [0,1,2,3,4,5].forEach(function(){
-    var d=document.createElement('div'); d.className='item';
-    d.innerHTML='<img src="images/morkov_2.jpg" alt="морковка">';
-    d.addEventListener('pointerdown',function(e){ e.preventDefault(); if(d.dataset.used)return;
-      d.dataset.used='1'; d.style.opacity='.3';
-      var i=(cnt[0]<=cnt[1])?0:1; cnt[i]++; drawCounts();
-      left--;
-      if(left===0){ praise(function(){
-        q('fb10').innerHTML='<span class="bignum">'+cnt[0]+' + '+cnt[1]+' = 6</span>';
-        q('go10').style.display=''; }); }
-    });
-    box.appendChild(d);
-  });
-})();
-ONSHOW['s10']=function(){ say('c2b'); };
-q('go10').addEventListener('pointerdown',function(e){e.preventDefault();show('s11')});
-
-// ================= 12 задание 7: слоги (3 слова) =================
-var SLOVA=[
-  {parts:['ПО','МИ','ДОР'], word:'ПОМИДОР', img:'pomidor'},
-  {parts:['БА','НАН'],       word:'БАНАН',   img:'banan_1'},
-  {parts:['СЛИ','ВА'],       word:'СЛИВА',   img:'sliva_1'}
-];
-var si=0;
-function drawSlogi(){
-  var s=SLOVA[si], box=q('slogi'), pic=q('slogiPic');
-  box.innerHTML=''; pic.innerHTML=''; q('slogiWord').innerHTML=''; q('fb11').textContent='';
-  q('go11').style.display='none';
-  pic.innerHTML='<div class="item" style="cursor:default"><img src="images/'+s.img+'.jpg" '+
-                'alt="" style="max-height:26vh"></div>';
-  var order=s.parts.map(function(_,i){return i;}).sort(function(){return Math.random()-0.5});
-  var step=0;
-  var field=q('slogiWord');
-  field.className='words'; field.style.minHeight='1.6em';
-  order.forEach(function(i){
-    var b=document.createElement('button'); b.type='button'; b.className='word';
-    b.innerHTML=paintLetters(s.parts[i]);
-    b.addEventListener('pointerdown',function(e){ e.preventDefault();
-      if(b.classList.contains('pick'))return;
-      if(i===step){ b.classList.add('pick'); step++;
-        // слог улетает в поле целого слова
-        var fly=document.createElement('span'); fly.className='word'; fly.style.margin='0';
-        fly.innerHTML=paintLetters(s.parts[i]);
-        fly.style.display='inline-block';
-        fly.style.animation='fly .45s ease-out';
-        field.appendChild(fly);
-        b.style.visibility='hidden';
-        if(step>=s.parts.length){
-          praise(function(){
-            if(si<SLOVA.length-1){ q('fb11').textContent=''; q('go11').style.display='';
-              q('go11').textContent='Следующее слово'; }
-            else { q('fb11').textContent='Все слова собраны!'; q('go11').style.display='';
-              q('go11').textContent='Дальше'; }
-          });
-        }
-      } else { b.classList.add('wrong'); setTimeout(function(){b.classList.remove('wrong')},450); say('ne_tochno'); }
+var guessCur = 'detskaya';
+function drawGuess(room){
+  guessCur = room || guessCur;
+  var g = GUESS[guessCur];
+  var box = document.getElementById('guessOpts'); if(!box) return;
+  box.innerHTML = '';
+  g.opts.forEach(function(t){
+    var b = document.createElement('button');
+    b.className = 'opt'; b.textContent = t;
+    if(t === g.ok) b.dataset.ok = '1';
+    b.addEventListener('pointerdown', function(){
+      if(t === g.ok){
+        b.classList.add('ok');
+        document.getElementById('guessHint').textContent = 'Верно! Это ' + t.toLowerCase() + ' 👍';
+        sayPraise();
+        setTimeout(function(){
+          var h = document.getElementById('guessHint');
+          if(h){ h.textContent = 'Молодец! Ты отгадал комнату 🎉'; }
+          var box2 = document.getElementById('guessOpts');
+          if(box2 && !document.getElementById('sgNext')){
+            var nb = document.createElement('button');
+            nb.className = 'btn main'; nb.id = 'sgNext'; nb.textContent = 'Дальше ➡';
+            nb.addEventListener('pointerdown', function(){ show(NEXT['sg'] || 's10'); });
+            box2.parentNode.insertBefore(nb, box2.nextSibling);
+          }
+        }, 2600);   /* похвала доигрывает, и только потом появляется «Дальше» */
+      } else {
+        b.classList.add('no'); setTimeout(function(){ b.classList.remove('no'); }, 330);
+        document.getElementById('guessHint').textContent = 'Почти! Послушай загадку ещё раз.';
+        say('h2');
+      }
     });
     box.appendChild(b);
   });
-  say('sl1');
 }
-ONSHOW['s11']=function(){ drawSlogi(); };
-q('go11').addEventListener('pointerdown',function(e){ e.preventDefault();
-  if(si<SLOVA.length-1){ si++; drawSlogi(); } else { show('s12'); } });
-
-// ================= 13 задачки =================
-var ZAD=[
-  {t:'Задачка 1', s:'z1', text:'На тарелке 4 красных яблока и 2 зелёных. Сколько всего?',
-   pics:['yabloko_kr_1','yabloko_kr_1','yabloko_kr_1','yabloko_kr_1','yabloko_zel_1','yabloko_zel_1'],
-   ex:'4 + 2 = ?', a:6, hint:'Посчитай все яблоки'},
-  {t:'Задачка 2', s:'z2', text:'В корзине 5 груш и 3 банана. Сколько всего фруктов?',
-   pics:['grusha_zh_1','grusha_zh_1','grusha_zh_1','grusha_zh_1','grusha_zh_1','banan_1','banan_1','banan_1'],
-   ex:'5 + 3 = ?', a:8, hint:'Посчитай все фрукты'},
-  {t:'Задачка 3', s:'z3', text:'Было 6 морковок, зайка съел 2. Сколько осталось?',
-   pics:['morkov_2','morkov_2','morkov_2','morkov_2','morkov_2','morkov_2'], faded:2,
-   ex:'6 − 2 = ?', a:4, hint:'Две бледные — их съели, надо вычесть'}
-];
-var zi=0;
-function drawZ(){
-  var z=ZAD[zi];
-  q('zTitle').textContent=z.t;
-  q('zText').textContent=z.text+'   '+z.ex;
-  var p=q('zPic'); p.innerHTML='';
-  z.pics.forEach(function(n,idx){
-    var d=document.createElement('div'); d.className='item';
-    d.style.cursor='default';
-    if(z.faded && idx >= z.pics.length - z.faded) d.classList.add('faded');
-    d.innerHTML='<img src="images/'+n+'.jpg" alt="">'; p.appendChild(d); });
-  var a=q('zAns'); a.innerHTML='';
-  q('fb12').textContent=''; q('go12').style.display='none';
-  var opts=[z.a, z.a+1, z.a-1].sort(function(){return Math.random()-0.5});
-  opts.forEach(function(v){
-    var b=document.createElement('button'); b.type='button'; b.className='word'; b.textContent=v;
-    b.addEventListener('pointerdown',function(e){ e.preventDefault();
-      if(v===z.a){ b.classList.add('pick');
-        praise(function(){ q('fb12').textContent='Верно! Ответ '+z.a;
-          q('go12').style.display='';
-          q('go12').textContent=(zi<ZAD.length-1)?'Следующая задачка':'Дальше'; }); }
-      else { b.classList.add('wrong'); setTimeout(function(){b.classList.remove('wrong')},450);
-        say('ne_tochno'); q('fb12').textContent=z.hint; }
-    });
-    a.appendChild(b);
+function playGuess(room){
+  /* у спальни кнопок нет — ребёнок отвечает вслух */
+  if(typeof drawGuess === 'function'){ if(room === 'detskaya'){ drawGuess(room); } else { var b=document.getElementById('guessOpts'); if(b){ b.innerHTML=''; } } }
+  var v = document.getElementById('vidg');
+  var src = 'video/' + (room === 'spalnya' ? 'spalnya_video' : 'detskaya') + '.mp4';
+  var poster = 'images/posters/poster_' + room + '.jpg';
+  stopAll();
+  v.poster = poster;
+  if(v.getAttribute('src') !== src){ v.setAttribute('src', src); v.load(); }
+  v.muted = false;
+  /* когда вторая загадка досмотрена — идём дальше сами, без кнопки */
+  v.onended = function(){
+    var h = document.getElementById('guessHint');
+    if(h){ h.textContent = 'Как называется эта комната?'; }
+    if(true){           /* после спальни — дальше по занятию */
+      setTimeout(function(){ show(NEXT['sg'] || 's10'); }, 1200);
+    }
+  };
+  v.play().catch(function(){ v.muted = true; v.play().catch(function(){}); });
+}
+function playRoom(id, room){
+  var v = document.getElementById(id);
+  var src = 'video/' + (room === 'spalnya' ? 'spalnya_video' : room) + '.mp4';
+  var poster = 'images/posters/poster_' + room + '.jpg';
+  stopAll();
+  v.poster = poster;
+  if(v.getAttribute('src') !== src){ v.setAttribute('src', src); v.load(); }
+  v.muted = false;
+  v.play().catch(function(){ v.muted = true; v.play(); });
+}
+/* «Ещё раз»: сбрасываем все задания и возвращаемся на титул */
+function restartGame(){
+  try{ stopAll(); }catch(e){}
+  zvI = 0; thI = 0; scI = 0; mbI = 0; sI = 0;
+  window.__famMixed = false; window.__thingsMixed = false; window.__scIntro = false;
+  window.__zvIntro = false; window.__guessPlayed = false; window.__lastSayKey = null;
+  praiseBag = [];
+  /* возвращаем скрытые кнопки озвучки */
+  document.querySelectorAll('[id^="play_"]').forEach(function(b){ b.style.display = ''; });
+  /* убираем итоговые картинки и надписи, чтобы всё началось заново */
+  ['itog3img','itog5img'].forEach(function(id){ var e = document.getElementById(id); if(e){ e.remove(); } });
+  var q5 = document.getElementById('scQ'); if(q5){ q5.textContent = 'Сколько людей на картинке?'; }
+  var w3 = document.querySelector('#s4 .lead'); if(w3){ w3.textContent = 'Куда отнесём предмет?'; }
+  document.querySelectorAll('.opt,#guessOpts,#skOpts,.row').forEach(function(e){ e.classList.remove('ok','no'); });
+  var bsk = document.querySelector('#sz .baskets'); if(bsk){ bsk.classList.remove('hidden'); }
+  var fin = document.getElementById('zvFinal'); if(fin){ fin.classList.add('hidden'); }
+  var rz = document.getElementById('rowNata'); if(rz){ rz.innerHTML = ''; }
+  var rb = document.getElementById('rowBalo'); if(rb){ rb.innerHTML = ''; }
+  drawZv(); drawThings(); drawMb(); drawSc();
+  show('s0');
+}
+function show(id){
+  stopAll();
+  window.__lastSayKey = null;   /* на новом экране фраза может звучать снова */
+  document.querySelectorAll('.screen').forEach(function(s){ s.classList.remove('on'); });
+  var el = document.getElementById(id); if(el){ el.classList.add('on'); cur = id; }
+  drawProgress(); drawMom();
+  window.scrollTo({top:0, behavior:'smooth'});
+  playScreenVoice(id);
+  /* «Сосчитай семью»: картинка появляется при входе на экран */
+  if(id === 'sc'){ drawSc(); }
+  /* задание 3: предметы вразнобой — перемешиваем при каждом входе */
+  if(id === 's4'){ shuffleThings(); thI = 0; drawThings(); }
+  if(id === 's8'){ shuffleMb(); mbI = 0; drawMb(); say('zv4'); }
+  /* видео со звуком — играет само, как только ребёнок попал на экран */
+  if(id === 'sg'){
+    drawGuess('detskaya');
+    if(!window.__guessPlayed){ window.__guessPlayed = true; setTimeout(function(){ playGuess('detskaya'); }, 250); }
+  }
+  var vid = VIDEO_ON_SHOW[id];
+  if(vid){
+    setTimeout(function(){
+      var v = document.getElementById(vid);
+      if(!v) return;
+      try{ v.currentTime = 0; }catch(e){}
+      v.muted = false;
+      var p = v.play();
+      if(p && p.catch){ p.catch(function(){ v.muted = true; v.play().catch(function(){}); }); }
+    }, 250);
+  }
+}
+/* голос при открытии экрана */
+function playScreenVoice(id){
+  if(id === 'sz'){ if(!window.__zvIntro){ window.__zvIntro = true; say('zv5'); } return; }
+  if(id === 's10'){                     /* финал: пословица, потом звёздочка */
+    setTimeout(function(){ say('pos1'); }, 400);
+    setTimeout(function(){ say('star'); }, 4800);
+    return;
+  }
+  var key = SCREEN_SAY[id];
+  if(key){ window.__lastSayKey = null; setTimeout(function(){ say(key); }, 350); }
+}
+function drawProgress(){
+  var t = TASK_OF[cur];
+  var el = document.getElementById('taskLabel');
+  if(el){ el.textContent = t ? ('Задание ' + t + ' из 5') : ''; }
+  var p = document.getElementById('prog'); if(p){ p.innerHTML = ''; }
+}
+function done_n(){ var c = 0; for(var k in MARKS){ if(MARKS[k]) c++; } return c; }
+/* панель мамы: пока нет оценки — «Дальше» не идёт */
+function drawMom(){
+  var isTask = !!TASK_OF[cur];
+  document.getElementById('mom').style.display = (MOM_ON && isTask) ? 'block' : 'none';
+  if(!MOM_ON) return;
+  document.querySelectorAll('.mark').forEach(function(b){
+    b.classList.toggle('on', MARKS[cur] === parseInt(b.dataset.m,10));
   });
-  say(z.s);
+  var nb = document.getElementById('nextBtn');
+  nb.disabled = isTask && !MARKS[cur];
+  document.getElementById('momHint').textContent = (isTask && !MARKS[cur])
+    ? 'Сначала отметьте, как справился ребёнок' : '';
 }
-ONSHOW['s12']=function(){ drawZ(); };
-q('go12').addEventListener('pointerdown',function(e){ e.preventDefault();
-  if(zi<ZAD.length-1){ zi++; drawZ(); } else { show('s13'); } });
-
-// ================= 14 финал =================
-q('vid3').addEventListener('play',function(){hush()});
-q('vid3').addEventListener('pointerdown',function(e){ e.preventDefault();
-  if(this.paused) this.play().catch(function(){}); else this.pause(); });
-ONSHOW['s13']=function(){
-  if(MOM_ON) q('momBox').classList.add('on');
-  // итоговое видео — сразу
-  try{ q('vid3').currentTime=0; q('vid3').play().catch(function(){}); }catch(e){}
-  var v=q('vid3');
-  v.addEventListener('ended',function once(){ v.removeEventListener('ended',once); say('star3'); });
-  setTimeout(function(){ if(v.ended||v.paused) say('star3'); }, 20000);
-};
-q('again').addEventListener('pointerdown',function(e){ e.preventDefault(); location.reload(); });
-
-
-// видео запускается касанием в любом месте экрана (на телефоне автозапуск запрещён)
-['s1','s6','s13'].forEach(function(sid){
-  var scr=q(sid);
-  scr.addEventListener('pointerdown',function(e){
-    var v=scr.querySelector('video');
-    if(!v) return;
-    if(e.target.tagName==='BUTTON') return;   // кнопки «Дальше» не трогаем
-    if(v.paused){ v.play().catch(function(){}); }
+document.querySelectorAll('.mark').forEach(function(b){
+  b.addEventListener('pointerdown', function(){
+    MARKS[cur] = parseInt(b.dataset.m,10);
+    drawMom();
+    say('p1');                 /* похвала */
   });
 });
+document.getElementById('nextBtn').addEventListener('click', function(){
+  if(TASK_OF[cur] && !MARKS[cur]) return;
+  var nxt = NEXT[cur]; if(nxt) show(nxt);
+});
+/* клики по вариантам ответа */
+function opts(id, okValues, onRight, hintId){
+  var box = document.getElementById(id);
+  box.querySelectorAll('.opt').forEach(function(b){
+    b.addEventListener('pointerdown', function(){
+      var val = b.dataset.val !== undefined ? b.dataset.val : (b.dataset.ok ? '1' : '0');
+      var right = okValues ? okValues.indexOf(val) >= 0 : b.dataset.ok === '1';
+      if(right){ b.classList.add('ok'); if(hintId) document.getElementById(hintId).textContent = 'Верно! 👍'; sayPraise(); }
+      else { b.classList.add('no'); setTimeout(function(){ b.classList.remove('no'); }, 320);
+             if(hintId) document.getElementById(hintId).textContent = 'Почти! Послушай ещё раз и подумай.';
+             say(HINT_SAY[cur] || 'h2'); }
+      if(right && onRight) onRight();
+    });
+  });
+}
+/* ===== материалы ===== */
+var ROOMS = [
+  {key:'gostinaya', name:'Гостиная', img:'images/posters/poster_gostinaya.jpg'},
+  {key:'kuhnya',    name:'Кухня',    img:'images/posters/poster_kuhnya.jpg'},
+  {key:'detskaya',  name:'Детская',  img:'images/posters/poster_detskaya.jpg'},
+  {key:'spalnya',   name:'Спальня',  img:'images/rooms/spalnya.jpg'},
+  {key:'vannaya',   name:'Ванная',   img:'images/rooms/vannaya.jpg'},
+  {key:'prihozhaya',name:'Прихожая', img:'images/rooms/prihozhaya.jpg'},
+  {key:'masterskaya',name:'Мастерская', img:'images/rooms/masterskaya.jpg'}
+];
+/* панель оценки мамы: в обычных ЗАНЯТИЯХ выключена (решение Наташи 18.09:
+   ребёнок не должен прилипать к оценке, игра не замыливается).
+   Включаем её только в ИТОГОВОМ занятии, которое идёт как диагностика. */
+var MOM_ON = false;
+/* задание 2: предметы — РЕАЛИСТИЧНЫЕ картинки (решение Наташи) */
+var THINGS = [
+  /* кухня */
+  {label:'кастрюля',  img:'images/predmety/kastryulya.jpg', ok:'kuhnya'},
+  {label:'чайник',    img:'images/predmety/chaynik.jpg',    ok:'kuhnya'},
+  {label:'ложка',     img:'images/predmety/lozhka.jpg',     ok:'kuhnya'},
+  /* спальня */
+  {label:'кровать',   img:'images/predmety/krovat.jpg',     ok:'spalnya'},
+  {label:'одеяло',    img:'images/predmety/odeyalo.jpg',    ok:'spalnya'},
+  {label:'подушка',   img:'images/predmety/podushka.jpg',   ok:'spalnya'},
+  /* ванная */
+  {label:'мыло',      img:'images/predmety/mylo.jpg',       ok:'vannaya'},
+  {label:'щётка',     img:'images/predmety/shchetka.jpg',   ok:'vannaya'},
+  {label:'полотенце', img:'images/predmety/polotentse.jpg', ok:'vannaya'},
+  /* гостиная */
+  {label:'диван',     img:'images/predmety/divan.jpg',      ok:'gostinaya'},
+  {label:'телевизор', img:'images/predmety/televizor.jpg',  ok:'gostinaya'},
+  {label:'кресло',    img:'images/predmety/kreslo.jpg',     ok:'gostinaya'}
+];
+var thI = 0;
+function shuffleThings(){
+  for(var i = THINGS.length - 1; i > 0; i--){
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = THINGS[i]; THINGS[i] = THINGS[j]; THINGS[j] = t;
+  }
+}
+function drawThings(){
+  var box = document.getElementById('thingsRow'); box.innerHTML = '';
+  var t = THINGS[thI];
+  if(!t){ var n = document.createElement('div'); n.className='row';
+          n.innerHTML = '<button class="btn main" data-act="show(NEXT[cur] || \'s8\')">Дальше ➡</button>'; box.appendChild(n);
+          document.getElementById('roomsPick2').innerHTML='';
+          var w3 = document.querySelector('#s4 .lead');
+          if(w3){ w3.textContent = 'Все вещи на своих местах! 🎉'; }
+          var h3 = document.querySelector('#s4 h2');
+          if(h3 && !document.getElementById('itog3img')){
+            var i3 = document.createElement('img'); i3.id='itog3img'; i3.className='itog';
+            i3.src='images/itog3s.jpg'; i3.alt='Все вещи на своих местах';
+            h3.parentNode.insertBefore(i3, h3.nextSibling);
+          }
+          var pb4 = document.getElementById('play_s4'); if(pb4){ pb4.style.display = 'none'; }
+          say('q2'); return; }
+  var d = document.createElement('div'); d.className = 'pc';
+  d.innerHTML = '<img src="' + t.img + '" alt="' + t.label + '"><span>' + t.label + '</span>';
+  box.appendChild(d);
+  var rb = document.getElementById('roomsPick2'); rb.innerHTML = '';
+  var ONLY = ['kuhnya','spalnya','vannaya','gostinaya'];   /* задание 3: четыре комнаты */
+  ROOMS.filter(function(r){ return ONLY.indexOf(r.key) >= 0; }).forEach(function(r){
+    var c = document.createElement('div'); c.className = 'room';
+    c.innerHTML = '<img src="' + r.img + '" alt=""><b>' + r.name + '</b>';
+    c.addEventListener('pointerdown', function(){
+      if(r.key === t.ok){ document.getElementById('hint4').textContent = 'Верно! 👍'; sayPraise();
+        setTimeout(function(){ thI++; document.getElementById('hint4').textContent=''; drawThings(); }, 1100); }
+      else { document.getElementById('hint4').textContent = 'Почти! Вспомни, где этим пользуются.'; say('h4'); }
+    });
+    rb.appendChild(c);
+  });
+}
+drawThings();
+/* ── ЗАДАНИЕ «СОСЧИТАЙ СЕМЬЮ»: картинки с разным числом людей → выбор цифры ── */
+var SC_FAM = [
+  {n:2, img:'images/semya/semya_2_cheloveka.jpg'},
+  {n:3, img:'images/semya/semya_3_cheloveka.jpg'},
+  {n:4, img:'images/semya/semya_4_cheloveka.jpg'},
+  {n:5, img:'images/semya/semya_5_chelovek.jpg'},
+  {n:6, img:'images/semya/semya_6_chelovek.jpg'}
+];
+var scI = 0;
+/* порядок картинок — каждый раз новый */
+function shuffleFam(){
+  for(var i = SC_FAM.length - 1; i > 0; i--){
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = SC_FAM[i]; SC_FAM[i] = SC_FAM[j]; SC_FAM[j] = t;
+  }
+}
+function drawSc(){
+  if(scI === 0 && !window.__famMixed){ window.__famMixed = true; shuffleFam(); }
+  var box = document.getElementById('scOpts'); if(!box) return;
+  box.innerHTML = '';
+  var c = SC_FAM[scI];
+  if(!c){
+    document.getElementById('scQ').textContent = 'Ты отлично считаешь! 🎉';
+    document.getElementById('scImg').style.display = 'none';
+    document.getElementById('scEx').textContent = '';
+    if(!document.getElementById('itog5img')){
+      var i5 = document.createElement('img'); i5.id = 'itog5img'; i5.className = 'itog';
+      i5.src = 'images/itog5s.jpg'; i5.alt = 'Вся семья';
+      document.getElementById('scQ').parentNode.insertBefore(i5, document.getElementById('scQ').nextSibling);
+    }
+    var pbsc = document.getElementById('play_sc'); if(pbsc){ pbsc.style.display = 'none'; }
+    var r = document.createElement('div'); r.className = 'row';
+    r.innerHTML = '<button class="btn main" data-act="show(NEXT[cur] || \'sg\')">Дальше ➡</button>';
+    box.appendChild(r);
+    return;
+  }
+  document.getElementById('scImg').style.display = 'block';
+  document.getElementById('scImg').src = c.img;
+  document.getElementById('scQ').textContent = 'Сколько людей на картинке?';
+  document.getElementById('scHint').textContent = '';
+  /* пример внизу: счёт по одному */
+  document.getElementById('scEx').textContent = new Array(c.n).fill('1').join(' + ');
+  var opts = [];
+  for(var k = Math.max(1, c.n - 1); k <= c.n + 1; k++){ opts.push(k); }
+  opts.forEach(function(num){
+    var b = document.createElement('button'); b.className = 'opt'; b.textContent = num;
+    b.addEventListener('pointerdown', function(){
+      if(num === c.n){
+        b.classList.add('ok');
+        document.getElementById('scHint').textContent = 'Верно! ' + c.n + ' 👍';
+        sayPraise(); 
+        setTimeout(function(){ scI++; document.getElementById('scHint').textContent=''; drawSc(); }, 1500);
+      } else {
+        b.classList.add('no'); setTimeout(function(){ b.classList.remove('no'); }, 320);
+        document.getElementById('scHint').textContent = 'Почти! Посчитай по одному и назови число.';
+        say('pochti');
+      }
+    });
+    box.appendChild(b);
+  });
+  /* вопрос задания звучит ОДИН РАЗ — только при первом входе (просьба Наташи 19.09) */
+  if(!window.__scIntro){ window.__scIntro = true; say('sc1'); }
+}
 
-document.addEventListener('pointerdown',function once(){ unlock(); document.removeEventListener('pointerdown',once); });
+/* счёт рисуется при входе на экран — см. show() */
+
+/* ── ЗАДАНИЕ «РАССТАВЬ МЕБЕЛЬ» ── */
+/* слово сразу с покраской: гласные красные, согласные тёмно-синие (чек-лист) */
+var MB = [
+  {w:'СТОЛ',    n:1, img:'images/predmety/stol.jpg',
+   html:'<span class="cons">СТ</span><span class="vowel">О</span><span class="cons">Л</span>'},
+  {w:'ШКАФ',    n:1, img:'images/predmety/shkaf.jpg',
+   html:'<span class="cons">Ш</span><span class="cons">К</span><span class="vowel">А</span><span class="cons">Ф</span>'},
+  {w:'СТУЛ',    n:1, img:'images/predmety/stul.jpg',
+   html:'<span class="cons">СТ</span><span class="vowel">У</span><span class="cons">Л</span>'},
+  {w:'ДИВАН',   n:2, img:'images/predmety/divan.jpg',
+   html:'<span class="cons">Д</span><span class="vowel">И</span><span class="cons">В</span><span class="vowel">А</span><span class="cons">Н</span>'},
+  {w:'КРОВАТЬ', n:2, img:'images/predmety/krovat.jpg',
+   html:'<span class="cons">КР</span><span class="vowel">О</span><span class="cons">В</span><span class="vowel">А</span><span class="cons">ТЬ</span>'},
+  {w:'КРЕСЛО',  n:2, img:'images/predmety/kreslo.jpg',
+   html:'<span class="cons">КР</span><span class="vowel">Е</span><span class="cons">СЛ</span><span class="vowel">О</span>'}
+];
+var mbI = 0;
+function shuffleMb(){
+  for(var i = MB.length - 1; i > 0; i--){
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = MB[i]; MB[i] = MB[j]; MB[j] = t;
+  }
+}
+function drawMb(){
+  if(!window.__mbFirst){ window.__mbFirst = true; }
+  var w = document.getElementById('mbWord'), im = document.getElementById('mbImg');
+  var h = document.getElementById('mbHint');
+  if(!w) return;
+  var it = MB[mbI];
+  if(!it){
+    var box = document.querySelector('#s8 .mb-row');
+    var pb8 = document.getElementById('play_s8'); if(pb8){ pb8.style.display = 'none'; }
+    if(box){ box.innerHTML = '<p class="lead">Мебель расставлена, порядок в доме! 🎉</p>'
+      + '<img class="itog" src="images/itog4_slogi.jpg" alt="Наташа и Яша на диване">'; }
+    h.textContent = 'Мебель расставлена, порядок в доме!';
+     sayPraise();
+    var r = document.createElement('div'); r.className = 'row';
+    r.innerHTML = '<button class="btn main" data-act="show(NEXT[cur] || \'sc\')">Дальше ➡</button>';
+    h.parentNode.insertBefore(r, h.nextSibling);
+    return;
+  }
+  im.src = it.img;
+  w.innerHTML = it.html || paintWord(it.w);
+  h.textContent = 'Сколько слогов? Отнеси к Наташе или Яше.';
+}
+function mbPick(who){
+  var it = MB[mbI]; if(!it) return;
+  var h = document.getElementById('mbHint');
+  var right = (it.n === 1 && who === 'nata') || (it.n === 2 && who === 'yasha');
+  var shelf = document.getElementById(who === 'nata' ? 'shelfNata' : 'shelfYasha');
+  if(right){
+    shelf.classList.add('ok');
+    h.textContent = 'Верно! «' + it.w + '» — ' + (it.n === 1 ? 'один слог' : 'два слога') + ' 👍';
+    
+    setTimeout(function(){ shelf.classList.remove('ok'); mbI++; document.getElementById('mbHint').textContent = ''; drawMb(); }, 1500);
+  } else {
+    shelf.classList.add('no'); setTimeout(function(){ shelf.classList.remove('no'); }, 350);
+    h.textContent = 'Почти! Скажи слово по частям — и посчитай.';
+    
+  }
+}
+document.getElementById('shelfNata').addEventListener('pointerdown', function(){ mbPick('nata'); });
+document.getElementById('shelfYasha').addEventListener('pointerdown', function(){ mbPick('yasha'); });
+/* задание «Спаси семью» убрано — этот блок оставлен как память о проделанной работе */
+
+/* задание 5: слоги */
+var SYL = [
+  {w:'ДОМ', n:1}, {w:'СТОЛ', n:1}, {w:'ШКАФ', n:1},
+  {w:'МА-МА', n:2}, {w:'ПА-ПА', n:2}, {w:'КУХ-НЯ', n:2}, {w:'СЕМЬ-Я', n:2},
+  {w:'КОМ-НА-ТА', n:3}, {w:'БА-БУШ-КА', n:3}
+];
+var sI = 0;
+function drawSyl(){
+  var box = document.getElementById('opts8'); box.innerHTML = '';
+  if(sI >= SYL.length){ document.getElementById('s8word').textContent = 'Все слова отхлопали! 🎉';
+    var n = document.createElement('div'); n.className='row';
+    n.innerHTML = '<button class="btn main" data-act="show(NEXT[cur] || \'sg\')">Дальше ➡</button>'; box.appendChild(n); return; }
+  var s = SYL[sI];
+  document.getElementById('s8word').innerHTML = 'Яша шепчет: «' + paintWord(s.w) + '» — сколько слогов?';
+  [1,2,3].forEach(function(k){
+    var b = document.createElement('button'); b.className='opt'; b.textContent=k;
+    b.addEventListener('pointerdown', function(){
+      if(k === s.n){ b.classList.add('ok'); document.getElementById('hint8').textContent='Верно! ' + k + ' хлопка 👏'; sayPraise();
+        setTimeout(function(){ sI++; document.getElementById('hint8').textContent=''; drawSyl(); }, 1100); }
+      else { b.classList.add('no'); setTimeout(function(){b.classList.remove('no');},320);
+             document.getElementById('hint8').textContent='Почти! Отхлопай слово по частям.'; say('h2'); }
+    });
+    box.appendChild(b);
+  });
+}
+/* drawSyl убран вместе с заданием */
+/* задание 6: «Разложи буквы» — гласные Наташе, согласные Баловашке */
+var ZVUKI = [
+  {ch:'А', t:'vowel'}, {ch:'Б', t:'cons'},  {ch:'У', t:'vowel'}, {ch:'В', t:'cons'},  {ch:'О', t:'vowel'},
+  {ch:'П', t:'cons'},  {ch:'Э', t:'vowel'}, {ch:'Ф', t:'cons'},  {ch:'Ы', t:'vowel'}, {ch:'Р', t:'cons'}
+];
+var zvI = 0;
+function drawZv(){
+  var card = document.getElementById('zvCard');
+  var s = ZVUKI[zvI];
+  if(!s){
+    card.textContent = '🌟';
+    card.className = 'zv-card';
+    document.getElementById('zvProg').textContent = 'Все буквы разложены!';
+    document.getElementById('szQ').textContent = 'Спасибо! Ты помог разложить все буквы.';
+    var bsk = document.querySelector('#sz .baskets'); if(bsk){ bsk.classList.add('hidden'); }
+    var pbsz = document.getElementById('play_sz'); if(pbsz){ pbsz.style.display = 'none'; }
+    var fin = document.getElementById('zvFinal'); if(fin){ fin.classList.remove('hidden'); }
+    return;
+  }
+  card.textContent = s.ch;
+  card.className = 'zv-card ' + s.t;
+  document.getElementById('zvProg').textContent = 'Разложено: ' + zvI + ' из ' + ZVUKI.length;
+}
+function zvPut(basket){
+  var s = ZVUKI[zvI]; if(!s) return;
+  var right = (basket === 'nata' && s.t === 'vowel') || (basket === 'balo' && s.t === 'cons');
+  var el = document.getElementById(basket === 'nata' ? 'basketNata' : 'basketBalo');
+  var hint = document.getElementById('hintZv');
+  if(right){
+    el.classList.add('ok'); sayPraise();
+    /* буква ложится в ряд под своим героем — ребёнок видит, сколько уже разложено */
+    var row = document.getElementById(basket === 'nata' ? 'rowNata' : 'rowBalo');
+    if(row){
+      var sp = document.createElement('span');
+      sp.className = s.t;
+      sp.textContent = s.ch;
+      row.appendChild(sp);
+    }
+    if(hint){ hint.textContent = 'Верно! «' + s.ch + '» — ' + (s.t === 'vowel' ? 'гласная' : 'согласная') + ' 👍'; }
+    setTimeout(function(){
+      el.classList.remove('ok');
+      zvI++;
+      if(hint){ hint.textContent = ''; }
+      drawZv();
+    }, 1300);
+  } else {
+    el.classList.add('no'); say('zv3');
+    if(hint){ hint.textContent = 'Почти! Попробуй спеть эту букву — если поётся, она гласная.'; }
+    setTimeout(function(){ el.classList.remove('no'); }, 600);
+  }
+}
+document.getElementById('basketNata').addEventListener('pointerdown', function(){ zvPut('nata'); });
+document.getElementById('basketBalo').addEventListener('pointerdown', function(){ zvPut('balo'); });
+/* ребёнок часто жмёт саму букву — подсказываем и подсвечиваем корзины */
+var zvCardEl = document.getElementById('zvCard');
+if(zvCardEl){ zvCardEl.addEventListener('pointerdown', function(){
+  var hint = document.getElementById('hintZv');
+  if(hint){ hint.textContent = 'Отнеси букву: нажми на Наташу или на Баловашку 👇'; }
+  [document.getElementById('basketNata'), document.getElementById('basketBalo')].forEach(function(b){
+    if(!b) return;
+    b.classList.add('ok');
+    setTimeout(function(){ b.classList.remove('ok'); }, 700);
+  });
+}); }
+drawZv();
+/* кнопки-переходы, которые идут в обход заданий */
+['s7next','s9next','szNext'].forEach(function(id){
+  var el = document.getElementById(id);
+  if(el){
+    /* по чек-листу — срабатывает на касание, а не на click (на телефоне click теряется) */
+    el.addEventListener('pointerdown', function(){ show(NEXT[cur] || 's10'); });
+  }
+});
+/* разблокировка звука: на телефоне первый звук должен идти после касания */
+function unlockAudio(){
+  try{
+    var a = new Audio('sounds/nothing.mp3');
+    a.volume = 0; a.play().catch(function(){});
+  }catch(e){}
+  document.removeEventListener('pointerdown', unlockAudio, true);
+}
+document.addEventListener('pointerdown', unlockAudio, true);
+/* делегированный обработчик всех кнопок: pointerdown (на телефоне click теряется) */
+document.addEventListener('pointerdown', function(e){
+  var b = e.target.closest ? e.target.closest('[data-act]') : null;
+  if(!b) return;
+  var code = b.getAttribute('data-act').replace(/&apos;/g, "\'").replace(/&quot;/g, '"');
+  try{ (new Function(code)).call(b); }catch(err){ }
+}, true);
+/* кнопки «послушать» у заданий: на телефоне автозвук запрещён, поэтому играем по касанию */
+document.querySelectorAll('[id^="play_"]').forEach(function(b){
+  b.addEventListener('pointerdown', function(){
+    var k = b.getAttribute('data-key');
+    if(!k) return;
+    window.__lastSayKey = null;         /* разрешаем повторить ту же фразу */
+    say(k);
+    if(k === 'pos1'){ setTimeout(function(){ window.__lastSayKey = null; say('star'); }, 4200); }
+  });
+});
+/* кнопка запуска загадки про кухню — на касание */
+var skp = document.getElementById('skPlay');
+if(skp){ skp.addEventListener('pointerdown', function(){ var v = document.getElementById('vidk'); if(v){ v.muted = false; v.play().catch(function(){ v.muted = true; v.play().catch(function(){}); }); } }); }
+/* загадка */
+opts('opts1', null, function(){ say('z2'); setTimeout(function(){ show(NEXT[cur] || 'sz'); }, 6200); }, 'hint1');
+/* загадка про кухню: верный ответ — «КУХНЯ», ведём к заданию с предметами */
+opts('skOpts', null, function(){ sayPraise(); setTimeout(function(){ show(NEXT['sk'] || 's4'); }, 1500); }, 'skHint');
+drawProgress(); drawMom();
 </script>
 </body>
 </html>
